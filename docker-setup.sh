@@ -78,6 +78,9 @@ sudo adduser $USERNAME docker;
 sudo su - $USERNAME;
 
 # The following installs Docker Compose
-# Official Ubuntu repos may contain an older version. At the time of this 
-# writing, the official repo contained version 1.18
-sudo apt-get install docker-compose -y;
+# The version number (1.18.0) may need to be updated. Check 
+# https://github.com/docker/compose/releases for the latest version.
+# "uname -s" retrieves the name of the operating system.
+# "uname -m" retrieves the name of the hardware type the system is running on.
+sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose;
+sudo chmod +x /usr/local/bin/docker-compose;
